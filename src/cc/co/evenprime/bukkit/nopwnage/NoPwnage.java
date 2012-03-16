@@ -14,6 +14,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class NoPwnage extends JavaPlugin {
 
     public boolean enabled = true;
+    
+    public FakeCommandSender activator = null; // edk141
 
     private NoPwnageConfiguration config;
     private Map<String, PlayerData> playerData;
@@ -75,6 +77,7 @@ public class NoPwnage extends JavaPlugin {
                 enabled = !enabled;
                 if(enabled) {
                     this.config = new NoPwnageConfiguration(this);
+                    this.activator = new FakeCommandSender(sender.getName()); // edk141
                     sender.sendMessage("[NoPwnage] is now " + ChatColor.GREEN + "enabled");
                 } else {
                     sender.sendMessage("[NoPwnage] is now " + ChatColor.DARK_RED + "disabled");

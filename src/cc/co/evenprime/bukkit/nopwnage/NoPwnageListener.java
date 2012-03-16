@@ -212,7 +212,8 @@ public class NoPwnageListener implements Listener {
 
         for(String command : config.commands) {
             try {
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replace("[player]", name).replace("[ip]", ip).replace("[reason]", reason));
+                //Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replace("[player]", name).replace("[ip]", ip).replace("[reason]", reason)); // edk141
+                Bukkit.dispatchCommand(plugin.activator, command.replace("[player]", name).replace("[ip]", ip).replace("[reason]", reason)); // edk141
             } catch(Exception e) {
 
             }
